@@ -1,15 +1,38 @@
 import React, { useState } from 'react';
 import { Send, User, MessageSquare as MessageCircleQuote } from 'lucide-react';
+import { storage } from '../utils/storage';
+import type { Comment } from '../types/invitation';
 
 const Comments: React.FC = () => {
   const [name, setName] = useState('');
   const [comment, setComment] = useState('');
-  const [presence, setPresence] = useState('0');
+  const [presence, setPresence] = useState<'0' | '1' | '2'>('1');
+  const [comments, setComments] = useState<Comment[]>(storage.getComments());
 
-  const mockComments = [
-    { id: 1, name: 'Budi Santoso', text: 'Selamat berbahagia Wahyu & Riski! Semoga sakinah mawaddah warahmah.', presence: '1', date: '5 menit yang lalu' },
-    { id: 2, name: 'Siti Aminah', text: 'Barakallah, semoga lancar sampai hari-H ya.', presence: '1', date: '15 menit yang lalu' },
-  ];
+  const handleSend = () => {
+    if (!name || !comment) return;
+    
+    const newComment = storage.saveComment({
+      name,
+      text: comment,
+      presence: presence as any
+    });
+
+    setComments([newComment, ...comments]);
+    setName('');
+    setComment('');
+  };
+
+  const formatDate = (isoString: string) => {
+    const date = new Date(isoString);
+    const now = new Date();
+    const diff = Math.floor((now.getTime() - date.getTime()) / 1000); // seconds
+
+    if (diff < 60) return 'Baru Saja';
+    if (diff < 3600) return `${Math.floor(diff / 60)}m lalu`;
+    if (diff < 86400) return `${Math.floor(diff / 3600)}j lalu`;
+    return date.toLocaleDateString('id-ID', { day: 'numeric', month: 'short' });
+  };
 
   return (
     <section className="py-20 px-6 bg-white dark:bg-gray-900" id="comments">
@@ -41,7 +64,7 @@ const Comments: React.FC = () => {
               <label className="text-[10px] font-bold uppercase tracking-widest opacity-60 px-1">Konfirmasi Kehadiran</label>
               <select 
                 value={presence}
-                onChange={(e) => setPresence(e.target.value)}
+                onChange={(e) => setPresence(e.target.value as '0' | '1' | '2')}
                 className="w-full bg-white dark:bg-gray-900 px-4 py-3 rounded-2xl border border-gray-100 dark:border-gray-600 text-sm outline-none"
               >
                 <option value="0">Pilih Kehadiran</option>
@@ -61,16 +84,18 @@ const Comments: React.FC = () => {
               />
             </div>
 
-            <button className="w-full bg-primary text-white font-bold py-4 rounded-2xl shadow-lg hover:shadow-xl transition-all flex items-center justify-center gap-2 group transform active:scale-95">
+            <button 
+              onClick={handleSend}
+              className="w-full bg-primary text-white font-bold py-4 rounded-2xl shadow-lg hover:shadow-xl transition-all flex items-center justify-center gap-2 group transform active:scale-95"
+            >
               <Send className="w-4 h-4 group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform" />
               <span>Kirim Ucapan</span>
             </button>
           </div>
         </div>
 
-        {/* Display List */}
         <div className="space-y-4">
-          {mockComments.map((c) => (
+          {comments.map((c) => (
             <div key={c.id} className="p-5 bg-white dark:bg-gray-800 rounded-2xl shadow-md border border-gray-50 dark:border-gray-700 flex gap-4">
               <div className="flex-shrink-0 w-10 h-10 bg-primary/10 rounded-full flex items-center justify-center text-primary">
                 <MessageCircleQuote className="w-5 h-5" />
@@ -81,9 +106,12 @@ const Comments: React.FC = () => {
                   {c.presence === '1' && (
                     <span className="text-[8px] bg-green-100 text-green-600 px-2 py-0.5 rounded-full font-bold uppercase">Hadir</span>
                   )}
+                  {c.presence === '2' && (
+                    <span className="text-[8px] bg-red-100 text-red-600 px-2 py-0.5 rounded-full font-bold uppercase">Berhalangan</span>
+                  )}
                 </div>
                 <p className="text-xs opacity-70 mb-2 italic">"{c.text}"</p>
-                <span className="text-[8px] opacity-40 uppercase font-bold tracking-tighter">{c.date}</span>
+                <span className="text-[8px] opacity-40 uppercase font-bold tracking-tighter">{formatDate(c.date)}</span>
               </div>
             </div>
           ))}

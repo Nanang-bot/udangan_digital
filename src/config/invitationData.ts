@@ -19,18 +19,18 @@ export const invitationData: InvitationData = {
   },
   weddingDate: "2026-10-10T09:00:00",
   akad: {
-    date: "Sabtu, 10 Oktober 2026",
+    date: "Sabtu, 10 Juni 2026",
     time: "10.00 WIB - Selesai",
     location: {
-      address: "RT 10 RW 02, Desa Pajerukan, Kec. Kalibagor, Kab. Banyumas, Jawa Tengah 53191.",
+      address: "DESA TULO KEC DOLO, KAB. SIGI, SULAWESI TENGAH, SIGI, DOLO, TULO",
       mapsUrl: "https://goo.gl/maps/ALZR6FJZU3kxVwN86"
     }
   },
   resepsi: {
-    date: "Sabtu, 10 Oktober 2026",
+    date: "Sabtu, 10 Juni 2026",
     time: "13.00 WIB - Selesai",
     location: {
-      address: "RT 10 RW 02, Desa Pajerukan, Kec. Kalibagor, Kab. Banyumas, Jawa Tengah 53191.",
+      address: "DESA TULO KEC DOLO, KAB. SIGI, SULAWESI TENGAH, SIGI, DOLO, TULO",
       mapsUrl: "https://goo.gl/maps/ALZR6FJZU3kxVwN86"
     }
   },

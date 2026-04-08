@@ -8,7 +8,9 @@ import Gallery from '../sections/Gallery';
 import Gift from '../sections/Gift';
 import Comments from '../sections/Comments';
 import Welcome from '../sections/Welcome';
+import Schedule from '../sections/Schedule';
 import MusicPlayer from '../components/MusicPlayer';
+import LikeButton from '../components/LikeButton';
 import confetti from 'canvas-confetti';
 
 interface InvitationProps {
@@ -74,10 +76,12 @@ const Invitation: React.FC<InvitationProps> = ({ data }) => {
         <Hero data={data} />
         <BrideGroom data={data} />
         <Countdown date={data.weddingDate} />
+        <Schedule data={data} />
         <Story stories={data.stories} />
         <Gallery />
         <Gift bankAccounts={data.bankAccounts} />
         <Comments />
+        <LikeButton />
         
         <footer className="py-12 text-center bg-gray-50 dark:bg-gray-800 border-t border-gray-100 dark:border-gray-700">
           <div className="mb-6 opacity-30 flex items-center justify-center gap-4">

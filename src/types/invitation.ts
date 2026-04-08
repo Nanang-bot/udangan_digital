@@ -33,6 +33,14 @@ export interface BankAccount {
   address?: string;
 }
 
+export interface Comment {
+  id: string;
+  name: string;
+  text: string;
+  presence: '0' | '1' | '2'; // 0: Select, 1: Present, 2: Absent
+  date: string;
+}
+
 export interface InvitationData {
   groom: Person;
   bride: Person;
