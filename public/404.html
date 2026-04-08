@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Redirecting...</title>
+    <script type="text/javascript">
+      // Ambil path yang menyebabkan 404
+      var path = window.location.pathname;
+      var repo = "/udangan_digital/";
+      
+      // Jika path diawali dengan nama repo, arahkan ke sistem Hash (#)
+      if (path.indexOf(repo) !== -1) {
+        var subPath = path.split(repo)[1];
+        window.location.replace(window.location.origin + repo + "#/" + subPath);
+      } else {
+        // Jika tidak, kembali ke home
+        window.location.replace(window.location.origin + repo);
+      }
+    </script>
+  </head>
+  <body>
+    Redirecting to the right page...
+  </body>
+</html>
