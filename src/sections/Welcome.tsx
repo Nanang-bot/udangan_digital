@@ -24,8 +24,8 @@ const Welcome: React.FC<WelcomeProps> = ({ data, onOpen }) => {
         <h1 className="font-esthetic text-6xl mb-4 text-primary">{data.groom.name.split(' ')[0]} & {data.bride.name.split(' ')[0]}</h1>
         
         <div className="mb-8 space-y-2">
-          <span className="text-sm uppercase tracking-widest opacity-60">Kepada Yth Bapak/Ibu/Saudara/i</span>
-          <p className="text-xl font-bold text-gray-800 dark:text-white">Tamu Undangan</p>
+          <span className="text-xs uppercase tracking-[0.2em] text-white/70 font-medium">Kepada Yth. Bapak/Ibu/Saudara/i</span>
+          <p className="text-2xl font-bold text-white drop-shadow-md">Tamu Undangan</p>
         </div>
 
         <button 
