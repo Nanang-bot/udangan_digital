@@ -27,7 +27,7 @@ const BrideGroom: React.FC<BrideGroomProps> = ({ data }) => {
           <div className="relative mb-6 mx-auto w-44 h-44">
             <div className="absolute inset-0 bg-primary/10 rounded-full scale-110 group-hover:scale-125 transition-transform duration-500"></div>
             <img 
-              src="/assets/images/cowo.webp" 
+              src="assets/images/cowo.webp" 
               alt={data.groom.name} 
               className="w-full h-full object-cover rounded-full border-4 border-white shadow-xl relative z-10 grayscale hover:grayscale-0 transition-all duration-700"
             />
@@ -54,7 +54,7 @@ const BrideGroom: React.FC<BrideGroomProps> = ({ data }) => {
           <div className="relative mb-6 mx-auto w-44 h-44">
             <div className="absolute inset-0 bg-primary/10 rounded-full scale-110 group-hover:scale-125 transition-transform duration-500"></div>
             <img 
-              src="/assets/images/cewe.webp" 
+              src="assets/images/cewe.webp" 
               alt={data.bride.name} 
               className="w-full h-full object-cover rounded-full border-4 border-white shadow-xl relative z-10 grayscale hover:grayscale-0 transition-all duration-700"
             />

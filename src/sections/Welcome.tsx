@@ -9,13 +9,13 @@ interface WelcomeProps {
 
 const Welcome: React.FC<WelcomeProps> = ({ data, onOpen }) => {
   return (
-    <div className="fixed inset-0 z-[1056] flex flex-col items-center justify-center bg-white-black text-center p-6 bg-cover bg-center overflow-y-auto" style={{ backgroundImage: "url('/assets/images/bg.webp')", backgroundBlendMode: 'overlay' }}>
+    <div className="fixed inset-0 z-[1056] flex flex-col items-center justify-center bg-white-black text-center p-6 bg-cover bg-center overflow-y-auto" style={{ backgroundImage: "url('assets/images/bg.webp')", backgroundBlendMode: 'overlay' }}>
       <div className="max-w-md w-full animate-fade-in">
         <h2 className="font-esthetic text-5xl mb-6 text-primary drop-shadow-sm">The Wedding Of</h2>
         
         <div className="relative mb-8 mx-auto w-48 h-48 rounded-full border-4 border-white shadow-2xl overflow-hidden ring-4 ring-primary/20">
           <img 
-            src="/assets/images/bg.webp" 
+            src="assets/images/bg.webp" 
             alt="Wedding Cover" 
             className="w-full h-full object-cover animate-scale-subtle"
           />

@@ -66,7 +66,7 @@ export const invitationData: InvitationData = {
       accountNumber: "0812345678",
       bankName: "Qris / E-Wallet",
       type: "qris",
-      qrCodeUrl: "/assets/images/donate.png"
+      qrCodeUrl: "assets/images/donate.png"
     },
     {
       name: "Jams",
@@ -76,7 +76,7 @@ export const invitationData: InvitationData = {
       address: "Palu"
     }
   ],
-  musicUrl: "/assets/music/pure-love-304010.mp3",
+  musicUrl: "assets/music/pure-love-304010.mp3",
   theme: {
     primary: "#8573F1",
     secondary: "#7A5CD9"

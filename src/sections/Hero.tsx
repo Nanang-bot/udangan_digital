@@ -12,7 +12,7 @@ const Hero: React.FC<HeroProps> = ({ data }) => {
       {/* Background with parallax effect simulation */}
       <div className="absolute inset-0 z-0">
         <img 
-          src="/assets/images/bg.webp" 
+          src="assets/images/bg.webp" 
           alt="Wedding Hero" 
           className="w-full h-full object-cover opacity-25"
         />
@@ -27,7 +27,7 @@ const Hero: React.FC<HeroProps> = ({ data }) => {
         <div className="relative my-8 mx-auto" data-aos="zoom-in" data-aos-duration="1500">
           <div className="absolute inset-0 animate-ping rounded-full bg-primary/20 scale-110"></div>
           <img 
-            src="/assets/images/bg.webp" 
+            src="assets/images/bg.webp" 
             alt="Couple" 
             className="w-52 h-52 object-cover rounded-full border-4 border-white shadow-2xl relative z-10 mx-auto"
           />
