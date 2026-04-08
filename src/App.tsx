@@ -1,4 +1,4 @@
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import { HashRouter as Router, Routes, Route } from 'react-router-dom';
 import Invitation from './pages/Invitation';
 import Admin from './pages/Admin';
 import { invitationData as defaultData } from './config/invitationData';
